@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+john_ruby:
+  id: 1
+  book_list: 1
+  book: ruby
+  blurb: best ruby book ever.
+
+two:
+  book_id: 2
+  book_list_id: 1

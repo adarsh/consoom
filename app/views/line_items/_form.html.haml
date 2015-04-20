@@ -1,0 +1,45 @@
+.alert-message.warning
+  %h2 Add this book to your Favorites
+%br
+.row
+  .span4
+    .show_image
+      = image_tag(@line_item.book.image_url)
+  .span11.offset1
+    - if @line_item.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@line_item.errors.count, "error")
+          prohibited this item from being saved:
+        %ul
+          - @line_item.errors.full_messages.each do |msg|
+            %li= msg
+    = form_for(@line_item, :class => "form-stacked") do |f|
+      %h1
+        = @line_item.book.title
+        %br
+      %h3
+        - unless @line_item.book.author.nil?
+          By #{@line_item.book.author}
+          %br
+      %br
+      %br
+      %h5 Add a blurb
+      .field
+        %textarea.xxlarge{:name => "blurb", :rows => "3",
+          :placeholder => "Why recommend this book?", :onclick => 'this.select();',}
+        %span.help-block
+          Keep to less than 140 characters
+
+
+      .field
+        = f.hidden_field :book_id
+      .field
+        = f.hidden_field :book_list_id, :value => @book_list.id
+
+      %br
+      %button.btn.large{:type=> "submit"} Save blurb
+      %br
+    .amazon_button
+      = link_to image_tag('buy_from_amazon_button_yellow.gif'), |
+        @line_item.book.amazon_url, :target => "blank"

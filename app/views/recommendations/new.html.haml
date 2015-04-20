@@ -1,0 +1,75 @@
+:javascript
+  $(function() {
+    $("#search_button").click(function() {
+      $("#spinner, #search_button").toggle();
+    });
+  });
+
+%h3
+  Recommend a book for
+  = @requestor.first
+
+
+// Displays errors if any exist
+-if @recommendation.errors.any?
+  .error_explanation
+    %h2
+      =pluralize(@recommendation.errors.count, "error")
+      prohibited this recommend ation from being saved:
+    %ul
+      -@recommendation.errors.full_messages.each do |msg|
+        %li
+          =msg
+
+
+
+// AMZ Search
+%h1 Search for a book to recommend
+#book_list
+  = form_tag new_recommendation_path, :method => :get, :remote => true do
+    %p
+      = text_field_tag :query, params[:query]
+      %span#spinner{:style => "display:none"}
+        = image_tag 'ajax-loader.gif'
+      = hidden_field_tag :id, params[:id]
+      = submit_tag "Search", :id => "search_button", :class => "btn"
+
+
+  #amazon_returned
+    = render 'amazon_returned'
+
+
+%br
+%h1 Select a book to recommend from your recent favorites
+%table
+  - @favorite_books.each do |book|
+    = form_for(@recommendation) do |f|
+      // Necessary hidden fields for recommendation response
+      .field
+        = f.hidden_field :recommendation_request_id, value: @recommendation.recommendation_request_id
+      .field
+        = f.hidden_field :recommender_user_id, value: @recommendation.recommender_user_id
+      .field
+        = f.hidden_field :requestor_user_id, value: @recommendation.requestor_user_id
+
+      %tr.entry
+        %td.span2
+          .list_image
+            = link_to image_tag(book.image_url), book_path(book.id)
+        %td.span14
+          .title
+            = link_to truncate(book.title, length: 80), book_path(book.id)
+            %br
+          .author
+            -unless book.author.nil?
+              By
+              = truncate(book.author, length: 80)
+          .field
+            = f.hidden_field :book_id, value: book.id
+        %td.span2
+          .button
+            =f.submit "Recommend This", :class => "btn primary"
+          %br
+          .amazon_button
+            = link_to image_tag('buy_from_amazon_button_yellow.gif'),
+                        book.amazon_url

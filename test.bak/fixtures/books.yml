@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  isbn: MyString
+  title: MyString
+  author: MyString
+  image_url: MyString
+
+perl:
+  isbn: 12312312
+  title: Programming Perl
+  author: Pete Perl
+  image_url: perl.png
+  
+ruby:
+  isbn: 12312095
+  title: Programming Ruby 1.9
+  author: Ron Ruby
+  image_url: ruby.png

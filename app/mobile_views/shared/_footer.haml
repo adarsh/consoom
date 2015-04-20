@@ -1,0 +1,23 @@
+.footer{:data => {:role => "footer", :position => "fixed"}}
+  %nav(data-role="navbar")
+    %ul
+      %li
+        = link_to 'Home',root_url
+      %li
+        = link_to 'Activity', amazon_items_path
+      %li
+        = link_to 'Books', book_list_path(:book_list_id)
+      %li
+        = link_to 'Connections', users_index_path
+      %li
+        = link_to 'Profile', recommendation_requests_path
+    %p{:align => "center"}
+      - if controller_name != 'sessions'
+        - if user_signed_in?
+          #{current_user.email}
+          = link_to "Sign out", destroy_user_session_path
+        - else
+          =link_to "Sign up", new_user_registration_path
+          or
+          =link_to "Sign in", new_user_session_path
+

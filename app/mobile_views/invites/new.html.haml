@@ -1,0 +1,8 @@
+- new_invite_content = capture do
+  %h2
+    Invite more Friends!
+
+  = render 'form'
+
+= render 'shared/page', :page_id => "user_index", :content => new_invite_content
+

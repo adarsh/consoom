@@ -1,0 +1,145 @@
+/* Global styles */
+.main {
+  a {
+    font-weight: bold;
+    color: #404040;
+    &:hover {
+      background: #888;
+      color: #2C3745;
+      text-decoration: none; }
+    &:visited {
+      color: #404040; }
+    text-decoration: none; } }
+
+.amazon_button {
+  a:hover {
+    background: white;     // Prevents gray underlining of Amazon button
+  }
+  img {
+    width: 100px; } }
+
+.blurb {
+  padding-left: 30px;
+}
+
+.book_show h1 span {
+  font-size: 18px;
+  color: #999;
+}
+
+.connections {
+  float: left;
+  width: 85px;
+  height: 40px;
+  padding: 14px;
+}
+
+.connection_avatars {
+  padding: 10px;
+}
+
+.feed_gravatar {
+  padding-left: 30px;
+  img {
+    height: 40px;
+    padding: 5px;
+    border: solid 2px gray;
+    border-radius: 5px;
+  }
+  a:hover {
+    background: white;     // Prevents gray underlining of Amazon button
+  }
+}
+
+.friend_gravatar img {
+  height: 30px;
+  float: left;
+  padding: 1px;
+}
+
+.friendship_activity h4 span {
+  color: #999;
+  font-size: 12px;
+  }
+
+.list_image {
+  a:hover {
+    background: white; }    // Prevents gray underlining of Amazon button
+  img {
+  width: 100px;
+  padding: 5px;
+  border: solid 2px gray;
+  border-radius: 10px; } }
+
+.name_avatar {
+  padding: 10px;
+  img {
+    width: 60px;}
+}
+
+.name_text {
+  margin: 10px;
+  display: inline;
+}
+
+.recommendations {
+  width: 105px;
+  height: 40px;
+  border-right: solid 1px #CCC;
+  float: left;
+  padding: 14px;
+}
+
+.review {
+  h2 {
+    font-family: georgia;
+    font-weight: normal; }
+  span {
+    color: #999;
+    font-size: 12px; }
+}
+
+.show_image img {
+    width: 200px;
+    padding: 5px;
+    border: solid 2px gray;
+    border-radius: 10px; }
+
+.show_image_info {
+  text-align: center;
+}
+
+.stat_number {
+  font-size: 18px;
+}
+
+.statistics {
+  border-bottom: solid 1px #CCC;
+  border-top: solid 1px #CCC;
+}
+
+.title {
+  font-size: 150%; }
+
+.user_profile {
+  margin-top: 35px;
+  vertical-align: top;
+  width: 250px;
+  background: #EAEAEA;
+  border: solid 1px #CCC;
+  border-radius: 10px;
+  }
+
+
+/* Clear Floated Elements
+------------------------------------------------------------------------------*/
+.clearfix:after {
+  clear: both;
+  content: ' ';
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}

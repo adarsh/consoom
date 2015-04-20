@@ -1,0 +1,6 @@
+- if item.source_type == "LineItem"
+  = render :partial => 'favorite', :locals => {:item => item}
+
+- if item.source_type == "Friendship"
+  - if item.source.user == current_user && item.source.status != "requested"
+    = render :partial => 'friendship', :locals => {:item => item}

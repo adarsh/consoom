@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  inviter_id: 1
+  invitee_email: fixture1@example.com
+
+two:
+  inviter_id: 1
+  invitee_email: fixture2@example.com

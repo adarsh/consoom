@@ -1,0 +1,49 @@
+%br
+.row.book_show
+  .span4.show_image_info
+    .show_image
+      =image_tag(@book.image_url)
+      -if user_signed_in?
+        -unless @line_item.nil?
+          %br
+            Added
+            ="#{time_ago_in_words(@line_item.created_at)} ago"
+          %br
+            =button_to 'Remove from Your Favorites', @line_item, :class => "btn",
+              :confirm => 'Are you sure?', :method => :delete
+        -else
+          .btn
+            =link_to 'Add to favorites', new_line_item_path(:book_id => @book.id)
+          .field
+            =hidden_field :book_id, :value => @book.id
+
+  .span12.review
+    %h1
+      =@book.title
+      %br
+      %span
+        -unless @book.author.nil?
+          By #{@book.author}
+
+    .amazon_button
+      =link_to image_tag('buy_from_amazon_button_yellow.gif'),
+        @book.amazon_url, :target => "blank"
+    %br
+
+    -if user_signed_in?
+      -@book.line_items.each do |item|
+        %h3
+          %i
+            = "“#{item.blurb}”"
+        &mdash;
+        %b
+          - if user_signed_in? && item.book_list.user.id == current_user.id
+            = "You"
+            %span
+              ="#{time_ago_in_words(item.created_at)} ago"
+          -else
+            = item.book_list.user.first
+            %span
+              = "#{time_ago_in_words(item.created_at)} ago"
+        %br
+        %br

@@ -1,0 +1,22 @@
+0000000000000000000000000000000000000000 034cbdfb24a8319307d7fa260892b3f47a46054f Adarsh Pandit <adarshpandit@gmail.com> 1332884681 -0400	clone: from git@github.com:sbronstein/consoom.git
+034cbdfb24a8319307d7fa260892b3f47a46054f beaee1df1fe9fe3d0a3a1c4034384ccfb1e44262 Adarsh Pandit <adarshpandit@gmail.com> 1332885210 -0400	checkout: moving from master to write-more-cucumber
+beaee1df1fe9fe3d0a3a1c4034384ccfb1e44262 034cbdfb24a8319307d7fa260892b3f47a46054f Adarsh Pandit <adarshpandit@gmail.com> 1332885326 -0400	checkout: moving from write-more-cucumber to master
+034cbdfb24a8319307d7fa260892b3f47a46054f beaee1df1fe9fe3d0a3a1c4034384ccfb1e44262 Adarsh Pandit <adarshpandit@gmail.com> 1332885446 -0400	checkout: moving from master to write-more-cucumber
+beaee1df1fe9fe3d0a3a1c4034384ccfb1e44262 91bb9cb27ad5f538182236f4d71d9b15a4ed1dfd Adarsh Pandit <adarshpandit@gmail.com> 1332885643 -0400	commit: Updated Gemfile to not require cucumber-rails (fixed error)
+91bb9cb27ad5f538182236f4d71d9b15a4ed1dfd 9068ef88344c99886f87dcb22fb60a1f10990d25 Adarsh Pandit <adarshpandit@gmail.com> 1333301903 -0400	commit: WIP: Progressing through favoriting feature
+9068ef88344c99886f87dcb22fb60a1f10990d25 a0a85c3ade8dd24e610bccb6b4ea8640d00afcfb Adarsh Pandit <adarshpandit@gmail.com> 1333302031 -0400	commit: Cleaned up Guardfile
+a0a85c3ade8dd24e610bccb6b4ea8640d00afcfb 9de5ac9b33c580e5442f164fc42f2980532408d1 Adarsh Pandit <adarshpandit@gmail.com> 1333302054 -0400	commit: Added sequences to factories
+9de5ac9b33c580e5442f164fc42f2980532408d1 643e691664c9ac3e15e341a92078370f977d59ba Adarsh Pandit <adarshpandit@gmail.com> 1333306094 -0400	commit: Add Favorites feature
+643e691664c9ac3e15e341a92078370f977d59ba b22472d43898fd08a21979d048628cc93d5000f6 Adarsh Pandit <adarshpandit@gmail.com> 1333306108 -0400	commit (amend): Add Favorites feature completed
+b22472d43898fd08a21979d048628cc93d5000f6 0af3afca497ced1f782a2e0011025786b4648269 Adarsh Pandit <adarshpandit@gmail.com> 1333307968 -0400	commit: Refactored favoriting_steps
+0af3afca497ced1f782a2e0011025786b4648269 322f783eb0cc7e7c18e08152b3484d59de00d682 Adarsh Pandit <adarshpandit@gmail.com> 1333485201 -0400	commit: Updated README.md
+322f783eb0cc7e7c18e08152b3484d59de00d682 e611d07bf855d17bcb6255fbbe2fafacd8863fa8 Adarsh Pandit <adarshpandit@gmail.com> 1333765137 -0400	commit: WIP:Adding more friendship features
+e611d07bf855d17bcb6255fbbe2fafacd8863fa8 0440370a20b28c3c21359ff3af6a6f9ca00054c1 Adarsh Pandit <adarshpandit@gmail.com> 1333765160 -0400	commit (amend): WIP:Adding more friendship features
+0440370a20b28c3c21359ff3af6a6f9ca00054c1 51bd49ad2965dca02d7fe025b463bd582c09fc7e Adarsh Pandit <adarshpandit@gmail.com> 1333765678 -0400	commit: Refactored friendship controller
+51bd49ad2965dca02d7fe025b463bd582c09fc7e c3204665040bc9f6b0d515a38903a978b06c573e Adarsh Pandit <adarshpandit@gmail.com> 1333765878 -0400	commit: Cleaned up routes.rb
+c3204665040bc9f6b0d515a38903a978b06c573e b700e734ecf516a4858a37422fcf96be0e0b473b Adarsh Pandit <adarshpandit@gmail.com> 1334101855 -0700	commit: Cleaning up spacing and comments
+b700e734ecf516a4858a37422fcf96be0e0b473b 00cd84a81abb7b512dd43d979d0ee15d4a94ecfc Adarsh Pandit <adarshpandit@gmail.com> 1334123634 -0700	commit: Refactored user favorites into model
+00cd84a81abb7b512dd43d979d0ee15d4a94ecfc 74ac53946d99ac719ba805249ce0b351d0b13903 Adarsh Pandit <adarshpandit@gmail.com> 1334124998 -0700	commit: Changed cucumber output to progress from pretty
+74ac53946d99ac719ba805249ce0b351d0b13903 c3cfc4d4a9b299309369eef781565bd3262c37f5 Adarsh Pandit <adarshpandit@gmail.com> 1334162224 -0700	commit: Added feature to cover adding an existing user as a friend
+c3cfc4d4a9b299309369eef781565bd3262c37f5 2ae1ffc77df889725f274b883ae1a8ef84781a75 Adarsh Pandit <adarshpandit@gmail.com> 1406574846 -0400	commit: wip
+2ae1ffc77df889725f274b883ae1a8ef84781a75 034cbdfb24a8319307d7fa260892b3f47a46054f Adarsh Pandit <adarshpandit@gmail.com> 1406574856 -0400	checkout: moving from write-more-cucumber to master

@@ -1,0 +1,19 @@
+:javascript
+  $(function() {
+    $("#search_button").click(function() {
+      $("#spinner, #search_button").toggle();
+    });
+  });
+
+%h1 Searching Amazon
+
+= form_tag amazon_items_path, :method => :get, :remote => true do
+  %p
+    = text_field_tag :query, params[:query], :placeholder => "Search for an item"
+    %span#spinner{:style => "display:none"}
+      = image_tag 'ajax-loader.gif'
+    = submit_tag "Search", :id => "search_button", :class => "btn"
+
+
+#amazon_returned
+  = render 'amazon_returned'

@@ -1,0 +1,32 @@
+.review.row-fluid
+  .span2.list_image
+    = link_to image_tag(item.source.book.image_url),
+      book_path(item.source.book.id),
+      :rel => "popover",
+      :"data-original-title" => item.source.book.title,
+      :"data-content" => "by #{item.source.book.author}"
+
+  .span7.blurb
+    %h2
+      %i
+        = "“#{item.source.blurb}”"
+    &mdash;
+    %b
+      - if user_signed_in? && item.user.id == current_user.id
+        = "You, "
+        %span
+          ="#{time_ago_in_words(item.created_at)} ago"
+      -else
+        = "#{item.user.first}, #{time_ago_in_words(item.created_at)} ago"
+    %br
+    %br
+
+  .span2
+    - if user_signed_in? && item.user.id == current_user.id
+    - else
+      = link_to 'Also Recommend',
+        new_line_item_path(:book_id => item.source.book.id), :class => 'btn'
+    .amazon_button
+      = link_to image_tag('buy_from_amazon_button_yellow.gif'),
+        item.source.book.amazon_url
+%hr

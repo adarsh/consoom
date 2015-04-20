@@ -1,0 +1,38 @@
+- if user_signed_in?
+  - if @recommendation_requests.count > 0
+    %h1 Request for recommendation
+    = render :partial => 'recommendation_requests'
+
+
+  - if (!@recommendations.nil? and @recommendations.count > 0)
+    %h1 Recommendations For You
+    #recommendations
+      = render :partial => "recommendations/recommendations",
+        :collection => @recommendations, :as => :recommendation
+
+  - if current_user.activities.count > 0
+    %h1 Activity
+    %br
+    = render :partial => "item", :collection => @activities
+
+    .solo_pagination
+      =paginate @activities
+
+  -else
+    %h1 Recently Recommended Books
+    %br
+    = render :partial => "books/book_listing", :collection => @books,
+      :as => :book
+
+    .solo_pagination
+      =paginate @books
+
+
+- else
+  %h1 Recently Recommended Books
+  %br
+  = render :partial => "books/book_listing", :collection => @books,
+    :as => :book
+
+  .solo_pagination
+    =paginate @books

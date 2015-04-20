@@ -1,0 +1,18 @@
+#{current_user.first}, thanks for joining.
+
+- if @user_invites_count > 0
+  =form_tag(:controller => "users", :action => "add_multiple_connections", :method => "post")
+
+  - @user_invites.each do |invite|
+    %p
+      #{invite.inviter.first} #{invite.inviter.last} invited you to Consoom, so you will receive recommendation requests from #{invite.inviter.first}. Would you like to get #{invite.inviter.first}'s recommendations too?
+    %p
+      = radio_button_tag("user[#{invite.inviter.id}]", "Yes")
+      = label_tag("user[#{invite.inviter.id}]", "Yes")
+      = radio_button_tag("user[#{invite.inviter.id}]", "No")
+      = label_tag("user[#{invite.inviter.id}]", "No")
+  = submit_tag("Submit")
+
+- else
+  To get started, please invite a friend from whom you would like to receive recommendations.
+  = render 'invites/form'

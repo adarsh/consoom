@@ -1,0 +1,7 @@
+- user_index_content = capture do
+  #connected_users
+    = render "connected_users"
+  %p
+    = link_to "Invite a Friend", new_invite_path
+
+= render 'shared/page', :page_id => "user_index", :content => user_index_content

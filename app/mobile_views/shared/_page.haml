@@ -1,0 +1,13 @@
+%div{:id => page_id, :data => {:"role" =>"page", :inline => "true"}}
+  .header{:data => {:role => "header", :position => "fixed"}, :align => "center"}
+    Consoom!
+    %sup alpha
+
+  - flash.each do |key, value|
+    = content_tag(:div, value, :class => "flash #{key}")
+
+  .content(data-role="content")
+    = content
+
+  = render :partial => "shared/footer"
+

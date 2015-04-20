@@ -1,0 +1,11 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+[branch "master"]
+[branch "write-more-cucumber"]
+[remote "origin"]
+	url = git@github.com:adarsh/consoom.git
+	fetch = +refs/heads/*:refs/remotes/origin/*

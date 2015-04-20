@@ -1,0 +1,26 @@
+- @home_content = capture do
+  - if user_signed_in?
+    %h3
+      Welcome Back, #{current_user.first}!
+    - if (!@recommendations.nil? && @recommendations.count > 0)
+      %ul{:data => {:role => "listview", :inset => "true"}}
+        %li{:"data-role" => "list-divider"}
+          You have #{pluralize(@recommendations.count, "Recommendation")}
+        = render :partial => "recommendations/recommendations", :collection => @recommendations, :as => :recommendation
+    - if (!@recommendation_requests.nil? && @recommendation_requests.count >0)
+      %ul{:data => {:role => "listview", :"split-icon"=>"delete", :inset => "true", :'divider-theme' => "e",:'split-theme'=> "e"}}
+        %li{:"data-role" => "list-divider"}
+          You Have #{pluralize(@inbound_recommendation_requests,"Incoming Request:")}
+        -  @recommendation_requests.each do |recommendation_request|
+          %li
+            = link_to new_recommendation_path(:id => recommendation_request.id) do
+              = @requestor_name[recommendation_request.id]
+            = link_to 'Ignore', recommendation_request, confirm: 'Are you sure?', method: :delete
+    %p
+      Would you like to...
+    - if((current_user.friends.count() > 0) && (@recommendations.nil? || @recommendations.count == 0))
+      = button_to 'Request Recommendations', recommendation_requests_path, action: :create
+    = button_to 'Invite More Friends', new_invite_path, method: :get
+    = button_to 'Add Favorites', amazon_items_path, method: :get
+
+= render 'shared/page', :page_id => "home", :content => @home_content

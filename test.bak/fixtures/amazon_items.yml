@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  asin: MyString
+  title: MyString
+  author: MyString
+  image_url: MyString
+  amazon_url: MyString
+
+two:
+  asin: MyString
+  title: MyString
+  author: MyString
+  image_url: MyString
+  amazon_url: MyString

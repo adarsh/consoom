@@ -1,0 +1,8 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  recommendation_request: dans_request
+  recommender_user: john
+  requestor_user: dan
+  book: ruby
+

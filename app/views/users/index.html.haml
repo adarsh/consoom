@@ -1,0 +1,43 @@
+%h3 Invite a friend to join CONSOOM!
+=render "invites/form"
+
+- if current_user.pending_friends.count > 0
+  %h2 Pending Friendship Requests
+  - current_user.pending_friends.each do |friend|
+    .row
+      =friend.first
+      =friend.last
+      =" | "
+      =link_to "Accept", accept_request_path(:friend_id => friend.id)
+      =" | "
+      =link_to "Ignore", decline_request_path(:friend_id => friend.id)
+      %br
+
+- if current_user.requested_friends.count > 0
+  %h2 Requested Friendships
+  .row
+    - current_user.requested_friends.each do |friend|
+      .row
+        .span2.list_image
+          = link_to(image_tag(friend.gravatar_url), "https://en.gravatar.com")
+        .span8
+          %h3
+            =link_to("#{friend.first} #{friend.last}",
+              user_show_path(friend))
+        .span2
+          =link_to "Cancel Request", cancel_request_path(:friend_id => friend.id)
+
+- if current_user.friends.count > 0
+  %h2 Friendships
+  - current_user.friends.each do |friend|
+    .row
+      .span2.list_image
+        = link_to(image_tag(friend.gravatar_url), "https://en.gravatar.com")
+      .span8
+        %h3
+          =link_to("#{friend.first} #{friend.last}",
+            user_show_path(friend))
+      .span2
+        = link_to "remove", remove_friendship_path(:friend_id => friend.id),
+          :confirm => 'Really remove this friend?'
+        %br

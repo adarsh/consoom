@@ -1,0 +1,26 @@
+.row
+  .feed_gravatar.span2
+    = link_to(image_tag(item.source.user.gravatar_url),
+      "https://en.gravatar.com")
+  .friendship_activity.span8
+    -if item.source.status == "pending"
+      %h4
+        =link_to("#{item.source.friend.first} #{item.source.friend.last}",
+          user_show_path(item.source.friend))
+        has requested to add you as a friend
+      =link_to "Accept",
+        accept_request_path(:friend_id => item.source.friend.id)
+      =" | "
+      =link_to "Ignore",
+        decline_request_path(:friend_id => item.source.friend.id)
+      %br
+
+    -if item.source.status == "accepted"
+      %h4
+        You are now connected to
+        =link_to("#{item.source.friend.first} #{item.source.friend.last}",
+          user_show_path(item.source.friend))
+        %span
+          = "#{time_ago_in_words(item.created_at)} ago"
+  .span2
+%hr

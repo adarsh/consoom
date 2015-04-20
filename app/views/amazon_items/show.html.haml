@@ -1,0 +1,18 @@
+%br
+.row
+  .span4
+    .show_image
+      =image_tag(@amazon_item.image_url)
+  .span11.offset1
+    %h1
+      =@amazon_item.title
+    %h3
+      -unless @amazon_item.author.nil?
+        By #{@amazon_item.author}
+    .btn
+      = link_to 'Add to favorites', amazon_favorite_path(:id => @amazon_item)
+    %br
+    %br
+    .amazon_button
+      =link_to image_tag('buy_from_amazon_button_yellow.gif'),
+        @amazon_item.amazon_url, :target => "blank"

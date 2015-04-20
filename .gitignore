@@ -1,0 +1,10 @@
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
+.sass-cache/
+.tddium*
+.tddium
+*.sw[op]
+rerun.txt
+tags

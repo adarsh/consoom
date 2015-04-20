@@ -1,0 +1,66 @@
+!!!
+%html
+  %head
+    %title Consoom
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    -# = yield :document_ready
+
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container-fluid
+          .brand
+            %b= link_to "CONSOOM!", root_path, :display => 'inline'
+
+          -if user_signed_in?
+            .nav-collapse
+              %ul.nav
+                %li
+                  = link_to 'Recommendations', recommendations_path
+                %li
+                  -if @inbound_recommendation_requests == 0
+                    = link_to 'Requests', recommendation_requests_path
+                  -else
+                    = link_to "Requests (#{@inbound_recommendation_requests})", recommendation_requests_path
+                %li
+                  = link_to 'Friends', users_index_path
+                %li
+                  = link_to 'Favorites', book_list_path(:book_list_id)
+                %li
+                  = link_to 'Search', amazon_items_path
+              .pull-right
+                = link_to current_user.email, user_show_path(current_user)
+                %br
+                = link_to "Sign out", destroy_user_session_path#, :method => :delete
+          - else
+            .nav-collapse
+              %ul.nav
+                -# %li
+                -#   = link_to "Sign up", new_user_registration_path
+                %li.pull-right
+                  = link_to "Sign in", new_user_session_path
+    %br
+    %br
+    %br
+    .main
+      .container
+        / Show notices if any exist
+        - if notice
+          .alert.alert-success
+            %p
+              %strong
+                = notice
+
+        = yield
+
+%footer.footer
+  .container
+    %p.pull-right
+      %a{:href => "#"} Back to top
+    %p
+      Designed and built by
+      %a{:href => "http://twitter.com/sbb", :target => "_blank"} @sbb
+      and
+      %a{:href => "http://twitter.com/adarshp", :target => "_blank"} @adarshp

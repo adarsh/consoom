@@ -1,0 +1,28 @@
+<div id="book_list" >
+  <h1>Listing Previously Recommended Books</h1>
+    <table>
+      <% @books.each do |book| %>
+        <tr>
+          <td>
+            <%= image_tag(book.image_url, :class => 'list_image') %>
+          </td>
+          <td class="list_description" >
+            <dl>
+            <dt><%= book.title %></dt>
+            <dd><%= book.author %></dd>
+            <dd><%= book.isbn %></dd>
+            </dl>
+          </td>
+          <td class="list_actions" >
+            <%= link_to 'Show', book %><br/>
+            <%= link_to 'Edit', edit_book_path(book) %><br/>
+            <%= link_to 'Destroy', book,
+            :confirm => 'Are you sure?',
+            :method => :delete %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+</div>
+
+<%= link_to 'New Book', new_book_path %>

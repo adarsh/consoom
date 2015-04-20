@@ -1,0 +1,28 @@
+.review.row
+  .span2.list_image
+    = link_to image_tag(book.image_url),
+      book_path(book.id),
+      :rel => "popover",
+      :"data-original-title" => book.title,
+      :"data-content" => "by #{book.author}"
+
+  .span8
+    .h2
+      = link_to truncate(book.title, length: 60), book_path(book)
+    %br
+    .author
+      - unless book.author.nil?
+        By
+        = truncate(book.author, length: 80)
+    %br
+    %br
+    %br
+    %br
+    %br
+    = "#{time_ago_in_words(book.created_at)} ago"
+    -if user_signed_in?
+      = link_to ' | Recommend this book', new_line_item_path(:book_id => book.id)
+
+  .span2.amazon_button
+    = link_to image_tag('buy_from_amazon_button_yellow.gif'), book.amazon_url
+%hr

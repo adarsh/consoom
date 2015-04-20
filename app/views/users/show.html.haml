@@ -1,0 +1,35 @@
+.row
+  .span8
+    %h4 Recent Recommendations
+    %br
+    .review
+      =render :partial => "main/favorite",
+        :collection => @favorites,
+        :as => :item
+  .span4
+    .user_profile
+      .name_avatar
+        %h4
+          =link_to(image_tag(@user.gravatar_url, :align => 'top'),
+            "https://en.gravatar.com/site/signup")
+          .name_text
+            =@user.first
+            =@user.last
+      .statistics.clearfix
+        .recommendations
+          %b.stat_number
+            =@user.line_items.count
+          %br Recommendations
+        .connections
+          %b.stat_number
+            =@user.friends.count
+          %br Connections
+      .connection_avatars.clearfix
+        %b
+          Friends:
+          -# Add popover of friend name and info
+        %br
+        - @user.friends.first(20).each do |connection|
+          .friend_gravatar
+            =link_to(image_tag(connection.gravatar_url),
+              user_show_path(connection))
